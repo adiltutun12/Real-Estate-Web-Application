@@ -1,0 +1,62 @@
+--ZADATAK 1--
+    -Dodao sam ikone koristeci Font Awesome klasu pored tekstualnog sadrzaja za svaku stavku menija
+    -Dodao sam interaktivne animacije koje se aktiviraju kada korisnik pređe mišem preko linkova. 
+    -Tekst se lagano smanjuje i postaje nevidljiv, dok ikone rastu i postaju potpuno vidljive. To dodaje dinamički efekt meniju.
+    -Korišten je transform jer ne utiče na layout stranice, što daje glađe i brže animacije
+    PRIJEDLOG POBOLJŠANJA:
+    -Možda bih razmislio o redizajnu menija da bih izbjegao pretrpanost, naročitno na mobilnim uređajima, tj. uređajima manje širine 
+
+
+
+
+--ZADATAK 2--
+    -Promijenio sam samu vrstu displeja sa grid-a na flex, što je prilagodljiviji način za jednostavne rasporede
+    -Koristio sam flex-wrap da se automatski elementi premještaju u novi red kada nema dovoljno prostora u trenutnom redu
+    -Postavljeni su fixni stilovi za boju pozadine zavisno od tipa nekretnine
+    -Definisao sam fixne dimenzioje, što je važno za očuvanje uniformnog izgleda unutar flex-a
+    PRIJEDLOZI POBOLJŠANJA:
+    -Prilagodio bih izgled same stranice za različite veličine ekrana da stranica ne bi izgledala pretrpano ili prazno na odrđenim uređajima
+    -Potrebno je osigurati da sve interaktivne komponente budu lahko vidljive i dostupne korisnicima
+
+NAPOMENA - u slučaju dva reda prikazivanja stanova, a da želim da mi drugi red ide od pocetka a ne da bude centriran tada bih dodao u css-u sljedeće linije koda
+
+#stan .grid-lista-nekretnina{
+    display: flex; 
+    flex-wrap: wrap; /*da omogućim prebacivanje u sljedeći red*/
+    gap:20px; /*postavlja 20px izmedju susjednih elemenata*/
+    padding:20px; /*postavlja 20px između ivica kontejenra i sadrzaja*/
+    justify-content: flex-start; /*poravnava sve elementa sa početkom od lijeve strane*/
+    margin-left: 2.5%; /*postavlja vanjski razmak od 2.5% širine roditeljskog elementa na lijevu stranu*/  --OVA I NIJE BAS AUTOMATIZOVAN NACIN JER ĆE ZA DRUGAČIJE VELICINE EKRANA DRUGACIJE I REAGOVATI(probano na dva razlicita laptopa), 
+    te sam zbog toga ostavio vetziju da se centriraju elementi.
+} 
+
+
+
+
+--ZADATAK 3--
+    -Za div #upiti napravio sam različite stilove za različite veličine ekrana, kada su upiti grupisani po dva u redu, 
+    kada upiti zauzimaju cijelu širinu reda, kao i kada imam prikaz karusela gdje je prikazan samo prvi upit i dugmad za navigaciju za proloazak kroz upite
+    -Dodao sam carousel navigaciona dugmad i dodijelio im neki stil
+    -Pošto je displej organiziran putem flex-a za ekrane sire od 800px stavio sam da nema prelaska u novi red vec da se upiti prikazuju u jednom redu jedan do drugog,
+    za širinu od 600px - 800px stavio sam da ima wrap tj da prikazuje po jedan upit u jednom redu, dok je za ekrane uže od 600px prikazan samo prvi upit i navigaciona dugmad,
+    u ovom sam otkrio dugmad koja su po defaultu bila skrivena
+    PRIJEDLOZI POBOLJŠANJA:
+    -Uočio sam da se neki stilovi ponavljaju za različite sekcije
+    -Osigurao bih dovoljan kontrast boja da bi različiti dijelovi bili vidljivi svima
+    -Ukoliko <iframe> nije ključan ua funkcionalnost stranice, razmotrio bih njegovo uklanjanje ili optimizaciju da bih spriječio usporavanje stranice
+
+
+
+
+--ZADATAK 4--
+    -Koristio sam HTML za definisanje strukture stranice, glavne, visokih i kvadratnih vijesti, gdje svaka ima svoj opis naziv, a glavana i sliku
+    -Koristio sam CSS flexbox kako bih olaksao raspored vijesti, bio sam uradio sa varijantom grida, koju imam takodjer sacuvanu, nailazio sam na problem pri korištenju nth-element usa klasama.
+    -pomocu aspect-ratio sam postavio odgovarajuce promjere, takodjer koristim i klasu duplaKvadratnavijest jer mi je tako bilo intiutivno poslagati elemente
+    -za ekrane do 800px kroz CSS sam promijenio stil da odgovara zadanom zadatku
+    -na vrh same stranice sam takodjer dodao meni koji je bio definisan u pocetnoj verziji projekta
+    PRIJEDLOZI POBOLJŠANJA:
+    -Urediti na samom izgledu vijesti, razni fontovi, boje i sl.
+    -Dodati vise responzivnih tačaka, radi boljeg prikaza na svim vrstama ekrana
+    -Dodao bih blage animacije ili hover efekte na vijesti kako bi korisničko iskustvo bilo prijatnije
+
+NAPOMENA - Za zadatak 4 sam dodao i drugu verziju, koju sam napisao u slučaju da verzija sa međukontenjerima nije dozvoljena, jer nisu specificirana ograničenja u postavci projekta, već na forumu pa sam bio u zabuni te uradio na oba načina.

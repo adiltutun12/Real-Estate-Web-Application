@@ -1,4 +1,5 @@
 const PoziviAjax = (() => {
+
     // fnCallback se u svim metodama poziva kada stigne
     // odgovor sa servera putem Ajax-a
     // svaki callback kao parametre ima error i data,
@@ -79,22 +80,54 @@ const PoziviAjax = (() => {
         fnCallback(null, { poruka: 'Podaci su uspješno ažurirani' });
     }
 
-    function impl_postUpit(nekretnina_id, podaci, fnCallback) {
-            ajaxRequest('POST', '/upit', podaci, (error, data) => {
-                if (error) {
-                    fnCallback(error, null);
-                } else {
-                    try {
-                        const upitResponse = JSON.parse(data);
-                        console.log("Upit uspješno dodan:", upitResponse);
-                        fnCallback(null, upitResponse);
-                    } catch (parseError) {
-                        console.error("Greška prilikom parsiranja odgovora:", parseError);
-                        fnCallback(parseError, null);
-                    }
-                }
-            });
+    // dodaje novi upit za trenutno loginovanog korisnika
+    function impl_postUpit(nekretnina_id, tekst_upita, fnCallback) {
+        // Check if user is authenticated
+        if (!req.session.username) {
+            // User is not logged in
+            return fnCallback({ status: 401, statusText: 'Neautorizovan pristup' }, null);
+        }
+
+        // Read user data from the JSON file asynchronously
+        readJsonFileAsync('korisnici', (err, users) => {
+            if (err) {
+                return fnCallback({ status: 500, statusText: 'Internal Server Error' }, null);
             }
+
+            // Read properties data from the JSON file asynchronously
+            readJsonFileAsync('nekretnine', (err, nekretnine) => {
+                if (err) {
+                    return fnCallback({ status: 500, statusText: 'Internal Server Error' }, null);
+                }
+
+                // Find the user by username
+                const loggedInUser = users.find((user) => user.username === req.session.username);
+
+                // Check if the property with nekretnina_id exists
+                const nekretnina = nekretnine.find((property) => property.id === nekretnina_id);
+
+                if (!nekretnina) {
+                    // Property not found
+                    return fnCallback({ status: 400, statusText: `Nekretnina sa id-em ${nekretnina_id} ne postoji` }, null);
+                }
+
+                // Add a new query to the property's queries array
+                nekretnina.upiti.push({
+                    korisnik_id: loggedInUser.id,
+                    tekst_upita: tekst_upita
+                });
+
+                // Save the updated properties data back to the JSON file asynchronously
+                saveJsonFileAsync('nekretnine', nekretnine, (err) => {
+                    if (err) {
+                        return fnCallback({ status: 500, statusText: 'Internal Server Error' }, null);
+                    }
+
+                    fnCallback(null, { poruka: 'Upit je uspješno dodan' });
+                });
+            });
+        });
+    }
 
     function impl_getNekretnine(fnCallback) {
         // Koristimo AJAX poziv da bismo dohvatili podatke s servera
@@ -216,7 +249,8 @@ const PoziviAjax = (() => {
 }
 
     
-function impl_getNextUpiti(nekretnina_id, page, fnCallback) {
+
+    function impl_getNextUpiti(nekretnina_id, page, fnCallback) {
         const url = `http://localhost:3000/next/upiti/nekretnina${nekretnina_id}?page=${page}`;
         ajaxRequest('GET', url, null, (error, data) => {
             if (error) {
@@ -231,76 +265,9 @@ function impl_getNextUpiti(nekretnina_id, page, fnCallback) {
                 }
             }
         });
-}
-
-    function impl_getInteresovanja(nekretninaId, fnCallback) {
-        ajaxRequest('GET', `/nekretnina/${nekretninaId}/interesovanja`, null, (error, data) => {
-          if (error) {
-            fnCallback(error, null);
-          } else {
-            try {
-              const interesovanja = JSON.parse(data);
-              fnCallback(null, interesovanja);
-            } catch (parseError) {
-              fnCallback(parseError, null);
-            }
-          }
-        });
-      }
-
-      function impl_postPonuda(nekretninaId, podaciPonude, fnCallback) {
-        const url = `http://localhost:3000/nekretnina/${nekretninaId}/ponuda`;
-        ajaxRequest('POST', url, podaciPonude, (error, data) => {
-            if (error) {
-                fnCallback(error, null);
-            } else {
-                try {
-                    const response = JSON.parse(data); 
-                    fnCallback(null, response);
-                } catch (parseError) {
-                    console.error('Greška prilikom parsiranja JSON-a za /nekretnina/:id/ponuda:', parseError);
-                    fnCallback(parseError, null);
-                }
-            }
-        });
     }
     
-    
 
-    function impl_postZahtjev(nekretninaId, podaciZahtjeva, fnCallback) {
-        const url = `http://localhost:3000/nekretnina/${nekretninaId}/zahtjev`;
-        ajaxRequest('POST', url, podaciZahtjeva, (error, data) => {
-            if (error) {
-                fnCallback(error, null);
-            } else {
-                try {
-                    const response = JSON.parse(data);
-                    fnCallback(null, response);
-                } catch (parseError) {
-                    console.error('Greška prilikom parsiranja JSON-a za /nekretnina/:id/zahtjev:', parseError);
-                    fnCallback(parseError, null);
-                }
-            }
-        });
-    }
-    
-    function impl_putZahtjev(nekretninaId, zahtjevId, podaciZahtjeva, fnCallback) {
-        const url = `http://localhost:3000/nekretnina/${nekretninaId}/zahtjev/${zahtjevId}`;
-        ajaxRequest('PUT', url, podaciZahtjeva, (error, data) => {
-            if (error) {
-                fnCallback(error, null);
-            } else {
-                try {
-                    const response = JSON.parse(data);
-                    fnCallback(null, response);
-                } catch (parseError) {
-                    console.error('Greška prilikom parsiranja JSON-a za PUT /nekretnina/:id/zahtjev/:zid:', parseError);
-                    fnCallback(parseError, null);
-                }
-            }
-        });
-    }
-    
     return {
         getTop5Nekretnina: impl_getTop5Nekretnina,
         getMojiUpiti: impl_getMojiUpiti,
@@ -312,9 +279,6 @@ function impl_getNextUpiti(nekretnina_id, page, fnCallback) {
         putKorisnik: impl_putKorisnik,
         postUpit: impl_postUpit,
         getNekretnine: impl_getNekretnine,
-        getInteresovanja : impl_getInteresovanja, 
-        postPonuda: impl_postPonuda,
-        postZahtjev: impl_postZahtjev,
-        putZahtjev: impl_putZahtjev,
+        
     };
 })();

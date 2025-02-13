@@ -1,4 +1,4 @@
-// Ovo je moj kod koji ispravno obradjuje greske i izvrsava sve kako bi se trebalo izvrsavati 
+//ovo je moj kod koji ispravno obradjuje greske i izvrsava sve kako bi se trebalo izvrsavati 
 window.onload = function () {
     var username = document.getElementById("username");
     var password = document.getElementById("password");

@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="bs-BA">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Statistika Nekretnina</title>
+    <link rel="stylesheet" href="../style/statistika.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> <!-- Chart.js za grafike -->
+</head>
+
+<body>
+    <div class="container">
+        <h1>Statistika Nekretnina</h1>
+
+        <!--Sekcija za Prosječnu Kvadraturu-->
+        <div id="prosjecnaKvadraturaSection">
+            <h2>Prosječna Kvadratura</h2>
+            <label for="tipNekretnineKvadratura">Tip nekretnine:</label>
+            <select id="tipNekretnineKvadratura">
+                <option value="">Sve</option>
+                <option value="Stan">Stan</option>
+                <option value="Kuća">Kuća</option>
+                <option value="Poslovni prostor">Poslovni prostor</option>
+            </select>
+
+            <label for="tipGrijanjaKvadratura">Tip grijanja:</label>
+            <select id="tipGrijanjaKvadratura">
+                <option value="">Sve</option>
+                <option value="plin">Plin</option>
+                <option value="struja">Struja</option>
+                <option value="centralno">Centralno grijanje</option>
+            </select>
+
+            <label for="minKvadraturaKvadratura">Minimalna kvadratura:</label>
+            <input type="number" id="minKvadraturaKvadratura" placeholder="npr. 50">
+            <label for="maxKvadraturaKvadratura">Maksimalna kvadratura:</label>
+            <input type="number" id="maxKvadraturaKvadratura" placeholder="npr. 150">
+            <label for="minGodinaKvadratura">Minimalna godina:</label>
+            <input type="number" id="minGodinaKvadratura" placeholder="npr. 2000">
+            <label for="maxGodinaKvadratura">Maksimalna godina:</label>
+            <input type="number" id="maxGodinaKvadratura" placeholder="npr. 2023">
+            <button id="btnIzracunajKvadraturu">Izračunaj Prosječnu Kvadraturu</button>
+            <div id="prosjecnaKvadraturaRezultat">Prosječna kvadratura: </div>
+        </div>
+
+        <hr>
+
+        <!-- Sekcija za Outlier -->
+        <div id="outlierSection">
+            <h2>Najveći Outlier</h2>
+            <label for="tipNekretnineOutlier">Tip nekretnine:</label>
+            <select id="tipNekretnineOutlier">
+                <option value="">Sve</option>
+                <option value="Stan">Stan</option>
+                <option value="Kuća">Kuća</option>
+                <option value="Poslovni prostor">Poslovni prostor</option>
+            </select>
+
+            
+
+            <label for="atributOutlier">Atribut za poređenje:</label>
+            <select id="atributOutlier">
+                <option value="cijena">Cijena</option>
+                <option value="kvadratura">Kvadratura</option>
+            </select>
+            <label for="minCijenaOutlier">Minimalna cijena:</label>
+            <input type="number" id="minCijenaOutlier" placeholder="npr. 50000">
+            <label for="maxCijenaOutlier">Maksimalna cijena:</label>
+            <input type="number" id="maxCijenaOutlier" placeholder="npr. 200000">
+            <button id="btnIzracunajOutlier">Izračunaj Outlier</button>
+            <div id="outlierRezultat">Najveći outlier: </div>
+        </div>
+
+        <hr>
+
+        <!-- Sekcija za Moje Nekretnine -->
+        <div id="mojeNekretnineSection">
+            <h2>Moje Nekretnine</h2>
+            <label for="korisnikId">Unesite ID korisnika:</label>
+            <input type="number" id="korisnikId" placeholder="npr. 1">
+            <label for="tipNekretnineMoje">Tip nekretnine:</label>
+            <select id="tipNekretnineMoje">
+                <option value="">Sve</option>
+                <option value="Stan">Stan</option>
+                <option value="Kuća">Kuća</option>
+                <option value="Poslovni prostor">Poslovni prostor</option>
+            </select>
+            <label for="lokacijaMoje">Lokacija:</label>
+            <input type="text" id="lokacijaMoje" placeholder="npr. Sarajevo">
+            <button id="btnMojeNekretnine">Prikaži Moje Nekretnine</button>
+            <div id="mojeNekretnineRezultat">Moje nekretnine: </div>
+        </div>
+
+        <hr>
+
+        <!-- Sekcija za Histogram -->
+        <div id="histogramSection">
+            <h2>Histogram</h2>
+            <label for="periodiHistogram">Unesite periode (od-do, odvojeno zarezima):</label>
+            <textarea id="periodiHistogram" placeholder="npr. 2000-2010,2011-2024"></textarea>
+            <label for="rasponiCijenaHistogram">Unesite raspone cijena (od-do, odvojeno zarezima):</label>
+            <textarea id="rasponiCijenaHistogram" placeholder="npr. 10000-150000,150001-1000000"></textarea>
+            <button id="btnIzracunajHistogram">Iscrtaj Histogram</button>
+            <div id="charts"></div>
+        </div>
+    </div>
+     <!-- Skripta -->
+     <script src="../scripts/SpisakNekretnina.js"></script>
+     <script src="../scripts/nekretnine.js"></script>
+     <script src="../scripts/StatistikaNekretnina.js"></script>
+     <script src="../scripts/Statistika.js"></script>
+     <script>
+         // Sprječavanje unosa neispravnih znakova
+         document.querySelectorAll("#periodi, #rasponiCijena").forEach(input => {
+             input.addEventListener("input", function () {
+                 this.value = this.value.replace(/[^0-9,-]/g, "");
+             });
+ 
+             // Automatsko proširivanje textarea polja
+             input.addEventListener("input", function () {
+                 this.style.height = "auto";
+                 this.style.height = `${this.scrollHeight}px`;
+             });
+         });
+     </script>
+</body>
+
+</html>

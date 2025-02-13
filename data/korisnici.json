@@ -1,0 +1,24 @@
+[
+    {
+        "id": 1,
+        "ime": "Novi",
+        "prezime": "Korisnik",
+        "username": "novalozinka",
+        "password": "$2a$10$PYuCxHOGytWu3cbWJsEyoeKIio5/d7im4jd6cs.dhLZa0CzbgFEMq"  
+    },   
+    {
+        "id": 2,
+        "ime": "Neko",
+        "prezime": "Nekic",
+        "username": "username1",
+        "password": "$2b$10$OFykzLMWv.wpDk2dXT5C8ObIgy8tlZYbm0ZPN0VTe8I/jXosIX1EG"
+    },
+    {
+        "id": 3,
+        "ime": "Neko2",
+        "prezime": "Nekic2",
+        "username": "username2",
+        "password": "$2b$10$eN2a0Ii0mkjvpSUU.6.S4uASuULIlAspWFc2LkJTmIYPZszB8oyXC"
+    }
+
+]

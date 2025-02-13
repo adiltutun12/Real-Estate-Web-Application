@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="bs-BA">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detalji</title>
+    <link rel="stylesheet" type="text/css" href="../style/detalji.css">
+</head>
+
+<body>
+    <iframe src="meni.html"></iframe>
+
+    <div id="osnovno">
+        <img id="slika-nekretnine" src="../resources/nekretnina.jpg" alt="Nekretnina">
+        <p><strong>Naziv:</strong> <span id="naziv">Učitavam...</span></p>
+        <p><strong>Kvadratura:</strong> <span id="kvadratura">Učitavam...</span> m²</p>
+        <p><strong>Cijena:</strong> <span id="cijena">Učitavam...</span> KM</p>
+    </div>
+
+    <h3>DETALJI</h3>
+    <div id="detalji">
+        <div id="kolona1">
+            <p><strong>Tip grijanja:</strong> <span id="tip-grijanja">Učitavam...</span></p>
+            <p><strong>Lokacija:</strong> <a id="lokacija-link" href="#">Učitavam...</a></p>
+        </div>
+        <div id="kolona2">
+            <p><strong>Godina izgradnje:</strong> <span id="godina-izgradnje">Učitavam...</span></p>
+            <p><strong>Datum objave oglasa:</strong> <span id="datum-objave">Učitavam...</span></p>
+        </div>
+        <div id="opis">
+            <p><strong>Opis:</strong> <span id="opis-tekst">Učitavam...</span></p>
+        </div>
+    </div>
+
+
+    <h3>FORMA ZA INTERESOVANJA</h3>
+    <div id="formaInteresovanja">
+        <!-- Dinamički se popunjava -->
+    </div>
+
+
+    <h3>UPITI</h3>
+    <div id="upitiContainer" class="carousel">
+        <!-- Dinamički se popunjava -->
+    </div>
+    <div class="carousel-nav">
+        <button id="prevBtn">Prethodni</button>
+        <button id="nextBtn">Sljedeći</button>
+    </div>
+
+    <h3>ZAHTJEVI</h3>
+    <div id="zahtjeviContainer" class="carousel">
+        <!-- Dinamički se popunjava -->
+    </div>
+    <div class="carousel-nav">
+        <button id="prevBtn1">Prethodni</button>
+        <button id="nextBtn1">Sljedeći</button>
+    </div>
+
+    <h3>PONUDE</h3>
+    <div id="ponudeContainer" class="carousel">
+        <!-- Dinamički se popunjava -->
+    </div>
+    <div class="carousel-nav">
+        <button id="prevBtn2">Prethodna</button>
+        <button id="nextBtn2">Sljedeća</button>
+    </div>
+</body>
+<script src="../scripts/PoziviAjax.js" defer></script>
+<script src="../scripts/SpisakNekretnina.js" defer></script>
+<script src="../scripts/DetaljiForma.js"> defer </script> 
+<script src="../scripts/ZahtjevPonuda.js" defer></script>
+<script src="../scripts/carousel.js" defer></script>
+<script src="../scripts/detalji.js" defer></script>
+</html>

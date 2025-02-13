@@ -1,0 +1,171 @@
+body {
+  background-color: #fdf1d3;
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+body h3 {
+  margin-left: 20px;
+}
+
+iframe {
+  border: none; 
+  width: 100%;
+  height: 50px;
+}
+
+#osnovno {
+  text-align: left;
+  border: 1px solid #000;
+  padding: 20px;
+  margin: 20px;
+}
+
+#osnovno img {
+  max-width: 100%;
+  height: auto;
+}
+
+#detalji {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-content: flex-start;
+  align-items: flex-start;
+  border: 1px solid #000;
+  padding: 20px;
+  margin: 20px;
+}
+
+#kolona1 {
+  order: 1;
+  flex: 1 1 auto;
+  align-self: auto;
+}
+
+#kolona2 {
+  order: 2;
+  flex: 1 1 auto;
+  align-self: auto;
+}
+
+#opis {
+  order: 3;
+  flex: 0 1 100%;
+  align-self: auto;
+}
+
+
+#upiti {
+  border: 1px solid #000;
+  padding: 20px;
+  margin: 20px;
+}
+
+.upit {
+  border: 1px solid #000;
+  padding: 10px;
+  margin-bottom: 10px;
+  background-color: white;
+}
+
+.carousel {
+  display: flex;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  gap: 20px;
+  border: 1px solid #000;
+  padding: 20px;
+  margin: 20px;
+}
+
+.carousel-item {
+  flex: 0 0 auto;
+  scroll-snap-align: start;
+  border: 1px solid #000;
+  padding: 10px;
+  background-color: white;
+  width: 300px;
+}
+
+.carousel::-webkit-scrollbar {
+  display: none; 
+}
+
+.carousel {
+  -ms-overflow-style: none;  
+  scrollbar-width: none;  
+}
+
+.carousel {
+  display: flex;
+  padding: 20px;
+  background-color: #ffffff; 
+  border: 1px solid #000; 
+  border-radius: 5px; 
+  margin: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+}
+
+.carousel-nav {
+  display: flex;
+  gap: 10px;
+  margin-top: auto;
+  margin-bottom: 15px;
+  justify-self: center;
+}
+
+.carousel-nav button {
+  padding: 5px 10px;
+  background-color: #336d9c;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); 
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+
+#novaInteresovanjaForma {
+  margin: 20px;
+  padding: 20px;
+  border: 1px solid #ddd;
+  background-color: #f9f9f9;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); 
+}
+
+
+#novaInteresovanjaForma label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+  padding: 10px;
+
+}
+
+#novaInteresovanjaForma input, #novaInteresovanjaForma select, #novaInteresovanjaForma textarea {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-sizing: border-box;
+}
+
+#novaInteresovanjaForma button {
+  padding: 10px 20px;
+  background-color: #336d9c;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); 
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+#novaInteresovanjaForma button:hover {
+  background-color: #336d9c;
+}

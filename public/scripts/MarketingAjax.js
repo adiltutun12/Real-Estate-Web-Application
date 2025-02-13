@@ -107,7 +107,6 @@ const MarketingAjax = (() => {
         if (nekretninaElement) {
             nekretninaElement.style.width = '500px';
     
-            // Pošalji zahtjev na rutu POST /marketing/nekretnina/:id
             ajaxRequest('POST', `/marketing/nekretnina/${idNekretnine}`, {}, (error, data) => {
                 if (error) {
                     console.error('Greška prilikom slanja zahtjeva:', error);

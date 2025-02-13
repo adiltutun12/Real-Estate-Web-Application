@@ -18,7 +18,6 @@
         <p><strong>Cijena:</strong> <span id="cijena">Učitavam...</span> KM</p>
     </div>
 
-    <!-- Detalji o nekretnini -->
     <h3>DETALJI</h3>
     <div id="detalji">
         <div id="kolona1">
@@ -34,21 +33,44 @@
         </div>
     </div>
 
+
+    <h3>FORMA ZA INTERESOVANJA</h3>
+    <div id="formaInteresovanja">
+        <!-- Dinamički se popunjava -->
+    </div>
+
+
     <h3>UPITI</h3>
-    <div class="carousel">
-        <!--PROBAVAM KADA SAM STAVIM UPITE DA LI RADI CAROUSEL PA CU IH POSLIJE OBRISATI SVE -->
-        
+    <div id="upitiContainer" class="carousel">
+        <!-- Dinamički se popunjava -->
     </div>
-
     <div class="carousel-nav">
-        <button id="prev">Prethodni</button>
-        <button id="next">Sljedeći</button>
+        <button id="prevBtn">Prethodni</button>
+        <button id="nextBtn">Sljedeći</button>
     </div>
 
-    <script src="../scripts/PoziviAjax.js"></script>
-    <script src="../scripts/detalji.js"></script>
-    <script src="../scripts/carousel.js"></script>
-    
-</body>
+    <h3>ZAHTJEVI</h3>
+    <div id="zahtjeviContainer" class="carousel">
+        <!-- Dinamički se popunjava -->
+    </div>
+    <div class="carousel-nav">
+        <button id="prevBtn1">Prethodni</button>
+        <button id="nextBtn1">Sljedeći</button>
+    </div>
 
+    <h3>PONUDE</h3>
+    <div id="ponudeContainer" class="carousel">
+        <!-- Dinamički se popunjava -->
+    </div>
+    <div class="carousel-nav">
+        <button id="prevBtn2">Prethodna</button>
+        <button id="nextBtn2">Sljedeća</button>
+    </div>
+</body>
+<script src="../scripts/PoziviAjax.js" defer></script>
+<script src="../scripts/SpisakNekretnina.js" defer></script>
+<script src="../scripts/DetaljiForma.js"> defer </script> 
+<script src="../scripts/ZahtjevPonuda.js" defer></script>
+<script src="../scripts/carousel.js" defer></script>
+<script src="../scripts/detalji.js" defer></script>
 </html>

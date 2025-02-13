@@ -88,11 +88,8 @@ iframe {
   border: 1px solid #000;
   padding: 10px;
   background-color: white;
-  width: 100%; 
-  box-sizing: border-box; 
-  margin: 0 auto; 
+  width: 300px;
 }
-
 
 .carousel::-webkit-scrollbar {
   display: none; 
@@ -101,6 +98,16 @@ iframe {
 .carousel {
   -ms-overflow-style: none;  
   scrollbar-width: none;  
+}
+
+.carousel {
+  display: flex;
+  padding: 20px;
+  background-color: #ffffff; 
+  border: 1px solid #000; 
+  border-radius: 5px; 
+  margin: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
 }
 
 .carousel-nav {
@@ -114,8 +121,51 @@ iframe {
 .carousel-nav button {
   padding: 5px 10px;
   background-color: #336d9c;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); 
   color: white;
   border: none;
   border-radius: 5px;
   cursor: pointer;
+}
+
+
+#novaInteresovanjaForma {
+  margin: 20px;
+  padding: 20px;
+  border: 1px solid #ddd;
+  background-color: #f9f9f9;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); 
+}
+
+
+#novaInteresovanjaForma label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+  padding: 10px;
+
+}
+
+#novaInteresovanjaForma input, #novaInteresovanjaForma select, #novaInteresovanjaForma textarea {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-sizing: border-box;
+}
+
+#novaInteresovanjaForma button {
+  padding: 10px 20px;
+  background-color: #336d9c;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); 
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+#novaInteresovanjaForma button:hover {
+  background-color: #336d9c;
 }

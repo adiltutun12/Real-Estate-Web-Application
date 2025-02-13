@@ -1,0 +1,149 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #fdf1d3;
+    color: #343a40;
+}
+
+.container {
+    max-width: 800px;
+    margin: 50px auto;
+    padding: 30px;
+    background: #fff;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+    border-radius: 12px;
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 25px;
+    color: #ff9900;
+    text-shadow: 2px 2px 3px black;
+    font-size: 28px;
+}
+
+h2 {
+    color: #495057;
+    border-bottom: 2px solid #ff9900;
+    padding-bottom: 5px;
+    margin-bottom: 15px;
+    font-size: 22px;
+}
+
+label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 8px;
+    color: #495057;
+    font-size: 15px;
+}
+
+textarea, input {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 20px;
+    border: 1px solid #ced4da;
+    border-radius: 8px;
+    font-size: 14px;
+    font-family: Arial, sans-serif;
+    box-sizing: border-box;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+textarea {
+    resize: vertical;
+}
+
+textarea:focus, input:focus {
+    border-color: #007bff;
+    outline: none;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+
+select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ced4da;
+    border-radius: 8px;
+    background-color: #fff;
+    font-size: 14px;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+select:focus {
+    border-color: #007bff;
+    outline: none;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+
+button {
+    display: block;
+    width: 100%;
+    padding: 12px;
+    background-color: #ff9900;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.2s ease, transform 0.1s ease;
+}
+
+button:hover {
+    background-color: #e88f00;
+    transform: translateY(-2px);
+}
+
+button:active {
+    transform: translateY(0);
+}
+
+#prosjecnaKvadraturaRezultat,
+#outlierRezultat,
+#mojeNekretnineRezultat {
+    background-color: #f8f9fa;
+    padding: 15px;
+    margin-top: 10px;
+    border-left: 4px solid #ff9900;
+    border-radius: 8px;
+    font-size: 15px;
+    font-family: "Courier New", Courier, monospace;
+}
+
+#charts {
+    margin-top: 30px;
+    text-align: center;
+}
+
+#charts canvas {
+    margin: 20px 0;
+}
+
+.text-info {
+    font-style: italic;
+    color: #6c757d;
+    font-size: 14px;
+    margin-top: -10px;
+}
+
+hr {
+    border: none;
+    border-top: 1px solid #ced4da;
+    margin: 30px 0;
+}
+
+.empty-result {
+    text-align: center;
+    font-size: 16px;
+    color: #dc3545;
+    font-weight: bold;
+    margin-top: 20px;
+}
+
+.highlight {
+    color: #ff9900;
+    font-weight: bold;
+}

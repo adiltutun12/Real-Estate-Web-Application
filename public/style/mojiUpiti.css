@@ -1,0 +1,38 @@
+body {
+    background-color: #fdf1d3;
+    font-family: Arial, sans-serif;
+    margin: 0;
+  }
+  
+  h1 {
+    text-align: center;
+    color: #333;
+  }
+  
+  #lista-upita {
+    display: flex; 
+    flex-wrap: wrap; 
+    gap: 20px; 
+    padding: 0;
+    margin: 20px auto;
+    list-style-type: none; 
+    justify-content: center; 
+    background-color: #fdf1d3; 
+  }
+  
+  #lista-upita li {
+    flex: 0 1 calc(50% - 20px); 
+    background-color: #fff;
+    border: 1px solid #ccc;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    text-align: left;
+    word-wrap: break-word; 
+  }
+  
+  @media (max-width: 768px) {
+    #lista-upita li {
+      flex: 0 1 100%; /* Na manjim ekranima elementi zauzimaju cijeli red */
+    }
+  }

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="bs-BA">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Moji Upiti</title>
+  <link rel="stylesheet" href="../style/meni.css">
+  <link rel="stylesheet" href="../style/mojiUpiti.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+
+<body>
+  <div id="meni-placeholder"></div>
+
+  <h1>Moji Upiti</h1>
+  <ul id="lista-upita"></ul>
+
+  <script src="../scripts/PoziviAjax.js"></script>
+  <script src="../scripts/mojiUpiti.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      fetch('meni.html') /*Učitao sam glavni meni nad kojim su primijenjeni svi stilovi kakav bi trebao izgledati, jer iz nekog razloga kada ucitam direktno mi pravi rekurziju,
+      pa sam meni učitao dinamičkim načinom*/
+        .then(response => response.text())
+        .then(html => {
+          const meniPlaceholder= document.getElementById('meni-placeholder').innerHTML = html;
+          const prijavaLink= document.querySelector('#prijavaLink');
+          if(prijavaLink){
+            prijavaLink.parentElement.remove(); //ovo sam uradio na ovaj način jer da bih vidio upite moram biti prijavljen pa nema smisla da se to učitava.
+          }
+        })
+
+        .catch(err => console.error("Greška prilikom učitavanja menija:", err));
+    });
+  </script>
+</body>
+
+</html>

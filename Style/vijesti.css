@@ -1,0 +1,86 @@
+body {
+    background-color: #f5f5f5;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 10px;
+}
+
+iframe {
+    border: none;
+    width: 100%;
+    height: 49px; 
+}
+
+.vijesti {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+/* Dodavanje stila za glavnu vijest */
+.glavnaVijest {
+    width: 100%;
+    background-color: #b3cde3;
+    box-sizing: border-box;
+    border: 1.5px solid black;
+    display: flex;
+    align-items: center;
+    aspect-ratio: 2/1;
+    text-align: center;
+
+}
+
+.glavnaVijest p{
+    margin: 10px;
+}
+
+/* Slika naslovnice */
+.glavnaVijest img {
+    width: 20%;
+    margin-right: 1rem;
+}
+
+/* Visoka vijest uredjivanje */
+.visokaVijest {
+    background-color: #f4cccc;
+    width: 25%;
+    aspect-ratio: 1/2; 
+    box-sizing: border-box;
+    border: 1.5px solid black;
+    padding: 5px;
+}
+
+.duplaKvadratna {
+    width: 25%;
+    display: flex;
+    flex-direction: column;
+}
+
+
+.kvadratnaVijest {
+    background-color: #f4e7c3;
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    box-sizing: border-box;
+    border: 1.5px solid black;
+    padding: 5px;
+}
+
+/* Dodavanje respozivnosti za manje ekrane */
+@media (max-width: 800px) {
+    .glavnaVijest {
+        aspect-ratio: 1/1;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    /* Podešavanje sirini na 50% */
+    .duplaKvadratna, .visokaVijest {
+        width: 50%;
+    }
+    
+    /* Postavljanje za manje ekrane odnos 1/1 za kvadratnuVijest */
+    .kvadratnaVijest {
+        aspect-ratio: 1/1;
+    }
+}
+  

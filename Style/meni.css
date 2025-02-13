@@ -1,0 +1,59 @@
+body {
+    background-color: #fdf1d3;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    background-color: #333;
+    overflow: hidden;
+}
+
+li {
+    float: left;
+}
+
+li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    position: relative; /* Postavlja poziciju za apsolutno pozicionirane elemente unutar */
+}
+
+li a:hover {
+    color: #ff9900;
+}
+
+.text {
+    position: relative;
+    z-index: 1; /* Osigurava da tekst bude iznad ikone */
+    transition: transform 0.3s ease; /* Animacija smanjenja teksta */
+}
+
+.icon {
+    font-size: 15px; /* VELICINA MI ZASAD ODGOVARA JER MI SE NE PREKLAPA SA TEXTOM A TAKO JE LJEPSE */
+    position: absolute; /* Apsolutno pozicioniranje ikone */
+    bottom: 0; /* Ikona će biti na dnu linka */
+    left: 50%; /* Centriranje ikone */
+    transform: translateX(-50%); /* Centriranje ikone horizontalno */
+    transition: all 1s ease; /* Animacija za ikonu */
+    opacity: 1.0; /* Polu-prozirnost ikone */
+}
+
+li a:hover .icon {
+    transform: translateX(-50%) scale(1.5) translateY(-10px); /* Povećanje ikone i pomjeranje prema gore */ 
+    opacity: 1; /* Potpuna vidljivost ikone */
+}
+
+li a:hover .text {
+    transform: scale(0.9); /* Malo smanjenje teksta na hover */   
+    opacity: 0; /* Sakrij tekst */
+    /*mogao sam staviti i visibity na hidden i to bi takodjer radilo istu stvar*/
+
+}
